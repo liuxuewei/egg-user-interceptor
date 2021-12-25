@@ -27,7 +27,7 @@ describe('test/user-interceptor.test.js', () => {
       .expect(200);
   });
   it('should GET /login', () => {
-    app.mockCsrf();
+    app.mockCsrf(); // mock添加csrftoken
     return app.httpRequest()
       .post('/login')
       .send({
@@ -37,7 +37,7 @@ describe('test/user-interceptor.test.js', () => {
       .expect(200);
   });
   it('should GET /customer', () => {
-    app.mockContext({
+    app.mockContext({ // mock添加session
       userId: 'mayue',
     });
     return app.httpRequest()
